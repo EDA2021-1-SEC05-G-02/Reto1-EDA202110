@@ -34,6 +34,12 @@ assert cf
 Se define la estructura de un catálogo de videos. El catálogo tendrá dos listas, una para los videos, otra para las categorias de
 los mismos.
 """
+def initcatalog():
+    return {"videos": lt.newList('ARRAY_LIST')}
+
+def addvideo (catalog, video):
+    lt.addLast(catalog["videos"],video)
+
 
 # Construccion de modelos
 

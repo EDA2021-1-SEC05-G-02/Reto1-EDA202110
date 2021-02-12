@@ -25,7 +25,7 @@ import sys
 import controller
 from DISClib.ADT import list as lt
 assert cf
-
+import time
 
 """
 La vista se encarga de la interacción con el usuario
@@ -37,7 +37,10 @@ operación solicitada
 def printMenu():
     print("Bienvenido")
     print("1- Cargar información en el catálogo")
-    print("2- ")
+    print("2- Videos por categoria y pais ")
+    print("3- Video tendencia por pais")
+    print("4- Video tendencia por categoria")
+    print ("5- Video por mas likes")
 
 catalog = None
 
@@ -49,9 +52,25 @@ while True:
     inputs = input('Seleccione una opción para continuar\n')
     if int(inputs[0]) == 1:
         print("Cargando información de los archivos ....")
+        catalog = controller.initcatalog()
+        controller.cargardatos(catalog)
+        print("Se cargo la informacion del catalogo")
+        print("se cargaron:" +str(lt.size(catalog["videos"]))+ "videos")
 
     elif int(inputs[0]) == 2:
-        pass
+        t1 = time.process_time()
+        print("Se ejecuto requerimiento 1 ")
+        t2 = time.process_time()
+        print(t2-t1)
+    
+    elif int(inputs[0]) == 3:
+        print("Se ejecuto requerimiento 2 ")
+    
+    elif int(inputs[0]) == 4:
+        print("Se ejecuto requerimiento 3 ")
+    
+    elif int(inputs[0]) == 5:
+        print("Se ejecuto requerimiento 4 ")
 
     else:
         sys.exit(0)
