@@ -64,9 +64,9 @@ while True:
         print(t2-t1)
     
     elif int(inputs[0]) == 3:
-        t1 = time.process_time()
+        t1 = time.process_time_ns()
         print("Se ejecuto requerimiento 2 ")
-        t2 = time.process_time()
+        t2 = time.process_time_ns()
         print("tiempo de {:0.9f} ejecucion".format(t2-t1))
     
     elif int(inputs[0]) == 4:
