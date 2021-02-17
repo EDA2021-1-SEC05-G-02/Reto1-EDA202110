@@ -41,6 +41,8 @@ def cargardatos(catalog):
         model.addvideo(catalog, video)
 
 
+
+
 # Inicialización del Catálogo de libros
 
 # Funciones para la carga de datos
