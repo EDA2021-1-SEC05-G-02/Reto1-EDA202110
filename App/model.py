@@ -40,6 +40,9 @@ def initcatalog():
 def addvideo (catalog, video):
     lt.addLast(catalog["videos"],video)
 
+def addcatgories(catalog,categoria):
+    lt.addLast(catalog["videos"],categoria)
+
 
 # Construccion de modelos
 

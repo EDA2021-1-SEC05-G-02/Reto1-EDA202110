@@ -40,6 +40,14 @@ def cargardatos(catalog):
     for video in input_file:
         model.addvideo(catalog, video)
 
+def cargardatoscat(catalog):
+    vfile = cf.data_dir + 'videos/category-id.csv'
+    input_file = csv.DictReader(open(vfile, encoding='utf-8'))
+    for categoria in input_file:
+        model.addcatgories(catalog, categoria)
+
+
+
 
 
 
