@@ -43,6 +43,9 @@ def addvideo (catalog, video):
 def addcatgories(catalog,categoria):
     lt.addLast(catalog["videos"],categoria)
 
+def addvideolarge(catalog,videol):
+    lt.addLast(catalog["videos"],videol)
+
 
 # Construccion de modelos
 

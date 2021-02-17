@@ -62,14 +62,15 @@ while True:
         catalog =controller.initcatalog()
         controller.cargardatoscat(catalog)
         print("Se cargo la informacion del catalogo")
-        print("Se cargaron:" +str(lt.size(catalog["videos"]))+ "videos")
+        print("Se cargaron:" +str(lt.size(catalog["videos"]))+ "categorias")
        
     
     elif int(inputs[0]) == 3:
-        t1 = time.process_time_ns()
-        print("Se ejecuto requerimiento 2 ")
-        t2 = time.process_time_ns()
-        print("tiempo de {:0.9f} ejecucion".format(t2-t1))
+        print("Carga exitosa")
+        catalog = controller.initcatalog()
+        controller.cargardatosvideoslarge(catalog)
+        print("Se cargaron:" +str(lt.size(catalog["videos"]))+ "videos")
+    
     
     elif int(inputs[0]) == 4:
         print("Se ejecuto requerimiento 3 ")
