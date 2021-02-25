@@ -28,6 +28,7 @@
 import config as cf
 from DISClib.ADT import list as lt
 from DISClib.Algorithms.Sorting import shellsort as sa
+
 assert cf
 
 """
@@ -45,6 +46,25 @@ def addcatgories(catalog,categoria):
 
 def addvideolarge(catalog,videol):
     lt.addLast(catalog["videos"],videol)
+
+def cmpVideosByViews(video1, video2): 
+    if (float(video1['views'])<float(video2['views'])):
+        return True
+    elif (float(video1['views'])>float(video2['views'])):
+        return False
+
+def sortVideo(catalog, size, Tipo):
+    sub_list = lt.subList(catalog['videos'], 0, size)
+    sub_list = sub_list.copy()
+    if Tipo=="shell":
+        A=sa.sort(sub_list,cmpVideosByViews)
+    elif Tipo=="insertion":
+        A=i_s.sort(sub_list,cmpVideosByViews)
+    elif Tipo=="selection":
+        A=ss.sort(sub_list,cmpVideosByViews)
+    else:
+        A=None
+    return A
 
 
 # Construccion de modelos

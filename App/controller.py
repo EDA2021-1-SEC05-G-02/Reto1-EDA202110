@@ -34,6 +34,12 @@ def initcatalog():
     catalog = model.initcatalog()
     return catalog
 
+def loaddata(catalog):
+    cargardatos(catalog)
+    cargardatoscat(catalog)
+    cargardatosvideoslarge(catalog)
+
+
 def cargardatos(catalog):
     vfile = cf.data_dir + 'videos/videos-small.csv'
     input_file = csv.DictReader(open(vfile, encoding='utf-8'))
@@ -52,7 +58,8 @@ def cargardatosvideoslarge(catalog):
     for videol in input_file:
         model.addvideolarge(catalog, videol)
 
-
+def sortVideo(catalog,size,Tipo):
+    return model.sortVideo(catalog,size,Tipo)
 
 
 

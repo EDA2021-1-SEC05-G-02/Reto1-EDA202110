@@ -25,7 +25,7 @@ import sys
 import controller
 from DISClib.ADT import list as lt
 assert cf
-import time
+from time import process_time 
 
 """
 La vista se encarga de la interacción con el usuario
@@ -33,6 +33,12 @@ Presenta el menu de opciones y por cada seleccion
 se hace la solicitud al controlador para ejecutar la
 operación solicitada
 """
+
+def initCatalo():
+    return controller.initcatalog()
+
+def loadData():
+    controller.loaddata(catalog)
 
 def printMenu():
     print("Bienvenido")
@@ -53,16 +59,19 @@ while True:
     if int(inputs[0]) == 1:
         print("Cargando información de los archivos ....")
         catalog = controller.initcatalog()
-        controller.cargardatos(catalog)
+        controller.cargardatosvideoslarge(catalog)
         print("Se cargo la informacion del catalogo")
         print("se cargaron:" +str(lt.size(catalog["videos"]))+ "videos")
+        
 
     elif int(inputs[0]) == 2:
+        t1_start = process_time()
         print("La carga fue un exito")
-        catalog =controller.initcatalog()
-        controller.cargardatoscat(catalog)
-        print("Se cargo la informacion del catalogo")
-        print("Se cargaron:" +str(lt.size(catalog["videos"]))+ "categorias")
+        Tipo=input("Tipo:")
+        size=int(input("Size: "))
+        S=controller.sortVideo(catalog,size,Tipo)
+        t1_stop = process_time()
+        print("Tiempo de ejecución ",t1_stop-t1_start," segundos")
        
     
     elif int(inputs[0]) == 3:
