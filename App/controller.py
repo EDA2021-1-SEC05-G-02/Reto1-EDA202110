@@ -59,7 +59,7 @@ def cargardatosvideoslarge(catalog):
         model.addvideolarge(catalog, videol)
 
 def sortVideo(catalog,size,Tipo):
-    return model.sortVideo(catalog,size,Tipo)
+    return model.sortVideo(catalog,size,Tipo) 
 
 
 

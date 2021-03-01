@@ -28,7 +28,10 @@
 import config as cf
 from DISClib.ADT import list as lt
 from DISClib.Algorithms.Sorting import shellsort as sa
-
+from DISClib.Algorithms.Sorting import insertionsort as i_s
+from DISClib.Algorithms.Sorting import selectionsort as ss
+from DISClib.Algorithms.Sorting import quicksort as q
+from DISClib.Algorithms.Sorting import mergesort as m
 assert cf
 
 """
@@ -62,6 +65,10 @@ def sortVideo(catalog, size, Tipo):
         A=i_s.sort(sub_list,cmpVideosByViews)
     elif Tipo=="selection":
         A=ss.sort(sub_list,cmpVideosByViews)
+    elif Tipo=="quick":
+        A=q.sort(sub_list,cmpVideosByViews)
+    elif Tipo=="merge":
+        A=m.sort(sub_list,cmpVideosByViews)
     else:
         A=None
     return A
