@@ -67,8 +67,8 @@ while True:
     elif int(inputs[0]) == 2:
         t1_start = process_time()
         print("La carga fue un exito")
-        Tipo=input("Tipo:")
-        size=int(input("Size: "))
+        Tipo=input("Tipo de ordenamiento que desea usar: ")
+        size=int(input("Tamaño de la mustra: "))
         S=controller.sortVideo(catalog,size,Tipo)
         t1_stop = process_time()
         print("Tiempo de ejecución ",t1_stop-t1_start," segundos")
