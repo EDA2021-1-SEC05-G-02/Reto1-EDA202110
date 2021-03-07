@@ -33,20 +33,24 @@ from DISClib.Algorithms.Sorting import selectionsort as ss
 from DISClib.Algorithms.Sorting import quicksort as q
 from DISClib.Algorithms.Sorting import mergesort as m
 assert cf
+from collections import defaultdict
 
 """
 Se define la estructura de un catálogo de videos. El catálogo tendrá dos listas, una para los videos, otra para las categorias de
 los mismos.
 """
-def initcatalog()
+def initcatalog():
         return {"videos": lt.newList('ARRAY_LIST')}
-
+    
+def intiCategoria():
+    return {"categorias":lt.newList("ARRAY_LIST")}
 
 def addvideo (catalog, video):
     lt.addLast(catalog["videos"],video)
+    
 
-def addcatgories(catalog,categoria):
-    lt.addLast(catalog["videos"],categoria)
+def addcatgories(Categoria,categoria):
+    lt.addLast(Categoria["categorias"],categoria)
 
 def addvideolarge(catalog,videol):
     lt.addLast(catalog["videos"],videol)
@@ -57,7 +61,11 @@ def cmpVideosByViews(video1, video2):
     elif (float(video1['views'])>float(video2['views'])):
         return False
 
-def sortVideo(catalog, size, Tipo):
+def addviews(catalog):
+    lt.addLast(catalog["videos"]["dislikes"], catalog["videos"]["likes"], catalog["videos"]["views"], catalog["videos"]["publish_time"], 
+    catalog["videos"]["cannel_title"], catalog["videos"]["title"], catalog["videos"]["trending_date"] )
+
+"""def sortVideo(catalog, size, Tipo):
     sub_list = lt.subList(catalog['videos'], 0, size)
     sub_list = sub_list.copy()
     if Tipo=="shell":
@@ -72,7 +80,7 @@ def sortVideo(catalog, size, Tipo):
         A=m.sort(sub_list,cmpVideosByViews)
     else:
         A=None
-    return A
+    return A"""
 
 
 # Construccion de modelos
@@ -86,3 +94,56 @@ def sortVideo(catalog, size, Tipo):
 # Funciones utilizadas para comparar elementos dentro de una lista
 
 # Funciones de ordenamiento
+def requerimiento1(category_name,country,n,catalog,Categoria):
+    valor_a_busar=[]
+    for i in Categoria["categorias"]["elements"]:
+        for k,v in i.items():
+            if category_name in v:
+                valor_a_busar.append(v)
+    valor=valor_a_busar[0][0:2]
+    videos_1=[]
+    for i in catalog["videos"]["elements"]:
+            for k,v in i.items():
+                if k=="category_id" and valor in v:
+                    videos_1.append(i)
+    pais=[]
+    for z in videos_1:
+            for k,v in z.items():
+                if k=="country" and country in v:
+                    pais.append(z)
+    organizada=sorted(pais, key = lambda i: (i['views']),reverse=True)
+    cortar=organizada[:n]
+    return cortar
+
+def requerimiento2(catalog,country):
+    paises=[]
+    for i in catalog["videos"]["elements"]:
+        for k,v in i.items():
+            if k=="country" and v==country:
+                paises.append(i)
+    nombres=[]
+    dates=[]
+    for i in paises:
+        for k,v in i.items():
+            if k=="title":
+                nombres.append(v)
+            if k=="trending_date":
+                dates.append(v)
+    unicos=[]
+    for i in nombres:
+        if i not in unicos:
+            unicos.append(i)
+    d = defaultdict(list)
+    for key, value in zip(nombres,dates):
+         d[key].append(value)
+    unicas_fechas=[]
+    for key,value in d.items():
+        unicas_fechas.append(set(value))
+    duracion=[]
+    for i in unicas_fechas:
+        duracion.append(len(i))
+    maximo=max(duracion)
+    indice_mayor=duracion.index(maximo)
+    return (paises[indice_mayor], maximo)
+
+

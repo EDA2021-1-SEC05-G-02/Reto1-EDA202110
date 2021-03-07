@@ -34,9 +34,12 @@ def initcatalog():
     catalog = model.initcatalog()
     return catalog
 
-def loaddata(catalog):
-    cargardatos(catalog)
-    cargardatoscat(catalog)
+def intiCategoria():
+    Categoria= model.intiCategoria()
+    return Categoria
+
+def loaddata(catalog,Categoria):
+    cargardatoscat(Categoria)
     cargardatosvideoslarge(catalog)
 
 
@@ -46,11 +49,11 @@ def cargardatos(catalog):
     for video in input_file:
         model.addvideo(catalog, video)
 
-def cargardatoscat(catalog):
+def cargardatoscat(Categoria):
     vfile = cf.data_dir + 'videos/category-id.csv'
     input_file = csv.DictReader(open(vfile, encoding='utf-8'))
     for categoria in input_file:
-        model.addcatgories(catalog, categoria)
+        model.addcatgories(Categoria, categoria)
 
 def cargardatosvideoslarge(catalog):
     vfile = cf.data_dir + 'videos/videos-large.csv'
@@ -58,9 +61,10 @@ def cargardatosvideoslarge(catalog):
     for videol in input_file:
         model.addvideolarge(catalog, videol)
 
-def sortVideo(catalog,size,Tipo):
-    return model.sortVideo(catalog,size,Tipo) 
-
+def requerimiento1(category_name,country,n,catalog,Categoria):
+    return model.requerimiento1(category_name,country,n,catalog,Categoria)
+def requerimiento2(catalog,country):
+    return model.requerimiento2(catalog,country)
 
 
 
