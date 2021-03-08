@@ -36,6 +36,8 @@ operación solicitada
 
 def initCatalo():
     return controller.initcatalog()
+def intiCategoria():
+    return controller.intiCategoria()
 
 def loadData():
     controller.loaddata(catalog)
@@ -49,6 +51,7 @@ def printMenu():
     print ("5- Video por mas likes")
 
 catalog = None
+Categoria=None
 
 """
 Menu principal
@@ -59,28 +62,27 @@ while True:
     if int(inputs[0]) == 1:
         print("Cargando información de los archivos ....")
         catalog = controller.initcatalog()
-        controller.cargardatosvideoslarge(catalog)
+        Categoria=controller.intiCategoria()
+        controller.loaddata(catalog,Categoria)
         print("Se cargo la informacion del catalogo")
         print("se cargaron:" +str(lt.size(catalog["videos"]))+ "videos")
-        
 
     elif int(inputs[0]) == 2:
-        t1_start = process_time()
-        print("La carga fue un exito")
-        Tipo=input("Tipo de ordenamiento que desea usar: ")
-        size=int(input("Tamaño de la mustra: "))
-        S=controller.sortVideo(catalog,size,Tipo)
-        t1_stop = process_time()
-        print("Tiempo de ejecución ",t1_stop-t1_start," segundos")
-       
-    
+         print("mejores videos por pais")
+         categoria = input("Escoja una categoria: ").capitalize()
+         pais = input("Escoja un pais: ")
+         muestra = int(input("Cuantos videos quiere ver: "))
+         for i in controller.requerimiento1(categoria,pais,muestra,catalog,Categoria):
+             for k,v in i.items():
+                 if k=="trending_date" or k=="title" or k=="channel_title" or k=="publish_date" or k=="views" or k=="likes" or k=="dislikes":
+                     print(k+": "+v)
+    """PENDIENTE"""
     elif int(inputs[0]) == 3:
-        print("Carga exitosa")
-        catalog = controller.initcatalog()
-        controller.cargardatosvideoslarge(catalog)
-        print("Se cargaron:" +str(lt.size(catalog["videos"]))+ "videos")
+        pais = input("Escoja un pais: ")
+        print(controller.requerimiento2(catalog,pais))
+
     
-    
+    """PENDIENTE"""
     elif int(inputs[0]) == 4:
         print("Se ejecuto requerimiento 3 ")
     
