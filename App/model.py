@@ -114,6 +114,10 @@ def requerimiento1(category_name,country,n,catalog,Categoria):
     organizada=sorted(pais, key = lambda i: (i['views']),reverse=True)
     cortar=organizada[:n]
     return cortar
+<<<<<<< HEAD
+=======
+
+>>>>>>> a274cb03e4207f7fac9278f3dea2d4485080d42c
 def requerimiento2(catalog,country):
     paises=[]
     for i in catalog["videos"]["elements"]:
@@ -132,8 +136,23 @@ def requerimiento2(catalog,country):
     for i in nombres:
         if i not in unicos:
             unicos.append(i)
+<<<<<<< HEAD
     color_dictionary = dict(zip(nombres, dates))
     return color_dictionary
     
+=======
+    d = defaultdict(list)
+    for key, value in zip(nombres,dates):
+         d[key].append(value)
+    unicas_fechas=[]
+    for key,value in d.items():
+        unicas_fechas.append(set(value))
+    duracion=[]
+    for i in unicas_fechas:
+        duracion.append(len(i))
+    maximo=max(duracion)
+    indice_mayor=duracion.index(maximo)
+    return (paises[indice_mayor], maximo)
+>>>>>>> a274cb03e4207f7fac9278f3dea2d4485080d42c
 
 
