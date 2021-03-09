@@ -76,15 +76,6 @@ while True:
              for k,v in i.items():
                  if k=="trending_date" or k=="title" or k=="channel_title" or k=="publish_date" or k=="views" or k=="likes" or k=="dislikes":
                      print(k+": "+v)
-<<<<<<< HEAD
-    """PENDIENTE"""
-    elif int(inputs[0]) == 3:
-        pais = input("Escoja un pais: ")
-        print(controller.requerimiento2(catalog,pais))
-
-    
-    """PENDIENTE"""
-=======
     
     
     elif int(inputs[0]) == 3:
@@ -95,7 +86,6 @@ while True:
         print("Pais: "+pais+" ,Dias: "+str(controller.requerimiento2(catalog,pais)[1]))
     
 """ PENDIENTE
->>>>>>> a274cb03e4207f7fac9278f3dea2d4485080d42c
     elif int(inputs[0]) == 4:
         print("Se ejecuto requerimiento 3 ")
     
