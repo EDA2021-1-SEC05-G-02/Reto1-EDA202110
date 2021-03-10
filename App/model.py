@@ -114,8 +114,11 @@ def requerimiento1(category_name,country,n,catalog,Categoria):
     organizada=sorted(pais, key = lambda i: (i['views']),reverse=True)
     cortar=organizada[:n]
     return cortar
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 6e8489619b613946ac345315ce5e1673631754f7
 def requerimiento2(catalog,country):
     paises=[]
     for i in catalog["videos"]["elements"]:
@@ -146,6 +149,7 @@ def requerimiento2(catalog,country):
     maximo=max(duracion)
     indice_mayor=duracion.index(maximo)
     return (paises[indice_mayor], maximo)
+<<<<<<< HEAD
 
 def requerimiento3(catalog, Categoria,categoria):
     valor_a_busar=[]
@@ -247,5 +251,7 @@ def requerimiento4(catalog,tag,country):
     dic=dict(zip(titulo,chunks))
     o=sorted(dic.items(), key=lambda e: e[1][4], reverse=True)
     return o
+=======
+>>>>>>> 6e8489619b613946ac345315ce5e1673631754f7
 
 
