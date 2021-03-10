@@ -55,45 +55,6 @@ def addcatgories(Categoria,categoria):
 def addvideolarge(catalog,videol):
     lt.addLast(catalog["videos"],videol)
 
-def cmpVideosByViews(video1, video2): 
-    if (float(video1['views'])<float(video2['views'])):
-        return True
-    elif (float(video1['views'])>float(video2['views'])):
-        return False
-
-def addviews(catalog):
-    lt.addLast(catalog["videos"]["dislikes"], catalog["videos"]["likes"], catalog["videos"]["views"], catalog["videos"]["publish_time"], 
-    catalog["videos"]["cannel_title"], catalog["videos"]["title"], catalog["videos"]["trending_date"] )
-
-"""def sortVideo(catalog, size, Tipo):
-    sub_list = lt.subList(catalog['videos'], 0, size)
-    sub_list = sub_list.copy()
-    if Tipo=="shell":
-        A=sa.sort(sub_list,cmpVideosByViews)
-    elif Tipo=="insertion":
-        A=i_s.sort(sub_list,cmpVideosByViews)
-    elif Tipo=="selection":
-        A=ss.sort(sub_list,cmpVideosByViews)
-    elif Tipo=="quick":
-        A=q.sort(sub_list,cmpVideosByViews)
-    elif Tipo=="merge":
-        A=m.sort(sub_list,cmpVideosByViews)
-    else:
-        A=None
-    return A"""
-
-
-# Construccion de modelos
-
-# Funciones para agregar informacion al catalogo
-
-# Funciones para creacion de datos
-
-# Funciones de consulta
-
-# Funciones utilizadas para comparar elementos dentro de una lista
-
-# Funciones de ordenamiento
 def requerimiento1(category_name,country,n,catalog,Categoria):
     valor_a_busar=[]
     for i in Categoria["categorias"]["elements"]:
@@ -114,7 +75,7 @@ def requerimiento1(category_name,country,n,catalog,Categoria):
     organizada=sorted(pais, key = lambda i: (i['views']),reverse=True)
     cortar=organizada[:n]
     return cortar
-    
+
 def requerimiento2(catalog,country):
     paises=[]
     for i in catalog["videos"]["elements"]:
