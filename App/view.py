@@ -76,17 +76,7 @@ while True:
              for k,v in i.items():
                  if k=="trending_date" or k=="title" or k=="channel_title" or k=="publish_date" or k=="views" or k=="likes" or k=="dislikes":
                      print(k+": "+v)
-<<<<<<< HEAD
-    """PENDIENTE"""
-    elif int(inputs[0]) == 3:
-        pais = input("Escoja un pais: ")
-        print(controller.requerimiento2(catalog,pais))
 
-    
-    """PENDIENTE"""
-=======
-    
-    
     elif int(inputs[0]) == 3:
         pais = input("Escoja un pais: ")
         for k,v in controller.requerimiento2(catalog,pais)[0].items():
@@ -94,14 +84,32 @@ while True:
                 print(k+" : "+v)
         print("Pais: "+pais+" ,Dias: "+str(controller.requerimiento2(catalog,pais)[1]))
     
-""" PENDIENTE
->>>>>>> a274cb03e4207f7fac9278f3dea2d4485080d42c
     elif int(inputs[0]) == 4:
         print("Se ejecuto requerimiento 3 ")
-    
+        categoria=input("Escoja una categoria: ").capitalize()
+        for k,v in controller.requerimiento3(catalog,Categoria,categoria)[0].items():
+            if k=="title" or k=="channel_title":
+                print(k+" : "+v)
+        print("Dias: "+str(controller.requerimiento3(catalog,Categoria,categoria)[1])+" Categoría id: ",str(controller.requerimiento3(catalog,Categoria,categoria)[2]))
+
     elif int(inputs[0]) == 5:
         print("Se ejecuto requerimiento 4 ")
-
+        country=input("Escoja un país o si desea ver el ranking global digite 'todos': ")
+        tag=input("Digite un tag: ")
+        muestra=int(input("Digite el número de videos que quiere ver: "))
+        contador=0
+        o=controller.requerimiento4(catalog,tag,country)
+        while contador<muestra:
+            print("Title: ",o[contador][0])
+            print("Channel title: ",o[contador][1][0])
+            print("Publish time: ",o[contador][1][1])
+            print("Views: ",o[contador][1][3])
+            print("Likes: ",o[contador][1][4])
+            print("Dislikes: ",o[contador][1][5])
+            print("Tags: ",o[contador][1][2])
+            contador+=1
+    
     else:
         sys.exit(0)
-sys.exit(0)"""
+        
+sys.exit(0)

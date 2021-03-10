@@ -33,14 +33,14 @@ El controlador se encarga de mediar entre la vista y el modelo.
 def initcatalog():
     catalog = model.initcatalog()
     return catalog
-<<<<<<< HEAD
+#<<<<<<< HEAD
 def intiCategoria():
     Categoria= model.intiCategoria()
     return Categoria
 def loaddata(catalog,Categoria):
     cargardatoscat(Categoria)
     cargardatos(catalog)
-=======
+#=======
 
 def intiCategoria():
     Categoria= model.intiCategoria()
@@ -49,11 +49,11 @@ def intiCategoria():
 def loaddata(catalog,Categoria):
     cargardatoscat(Categoria)
     cargardatosvideoslarge(catalog)
->>>>>>> a274cb03e4207f7fac9278f3dea2d4485080d42c
+#>>>>>>> a274cb03e4207f7fac9278f3dea2d4485080d42c
 
 
 def cargardatos(catalog):
-    vfile = cf.data_dir + 'videos/videos-large.csv'
+    vfile = cf.data_dir + 'videos/videos-small.csv'
     input_file = csv.DictReader(open(vfile, encoding='utf-8'))
     for video in input_file:
         model.addvideo(catalog, video)
@@ -74,6 +74,10 @@ def requerimiento1(category_name,country,n,catalog,Categoria):
     return model.requerimiento1(category_name,country,n,catalog,Categoria)
 def requerimiento2(catalog,country):
     return model.requerimiento2(catalog,country)
+def requerimiento3(catalog,Categoria,categoria):
+    return model.requerimiento3(catalog,Categoria,categoria)
+def requerimiento4(catalog,tag,country):
+    return model.requerimiento4(catalog,tag,country)
 
 
 
