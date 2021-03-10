@@ -76,12 +76,8 @@ while True:
              for k,v in i.items():
                  if k=="trending_date" or k=="title" or k=="channel_title" or k=="publish_date" or k=="views" or k=="likes" or k=="dislikes":
                      print(k+": "+v)
-<<<<<<< HEAD
-
-=======
     
     
->>>>>>> 6e8489619b613946ac345315ce5e1673631754f7
     elif int(inputs[0]) == 3:
         pais = input("Escoja un pais: ")
         for k,v in controller.requerimiento2(catalog,pais)[0].items():
@@ -89,10 +85,7 @@ while True:
                 print(k+" : "+v)
         print("Pais: "+pais+" ,Dias: "+str(controller.requerimiento2(catalog,pais)[1]))
     
-<<<<<<< HEAD
-=======
-""" PENDIENTE
->>>>>>> 6e8489619b613946ac345315ce5e1673631754f7
+
     elif int(inputs[0]) == 4:
         print("Se ejecuto requerimiento 3 ")
         categoria=input("Escoja una categoria: ").capitalize()

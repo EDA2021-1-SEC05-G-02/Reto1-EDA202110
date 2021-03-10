@@ -33,17 +33,6 @@ El controlador se encarga de mediar entre la vista y el modelo.
 def initcatalog():
     catalog = model.initcatalog()
     return catalog
-<<<<<<< HEAD
-#<<<<<<< HEAD
-def intiCategoria():
-    Categoria= model.intiCategoria()
-    return Categoria
-def loaddata(catalog,Categoria):
-    cargardatoscat(Categoria)
-    cargardatos(catalog)
-#=======
-=======
->>>>>>> 6e8489619b613946ac345315ce5e1673631754f7
 
 def intiCategoria():
     Categoria= model.intiCategoria()
@@ -52,10 +41,6 @@ def intiCategoria():
 def loaddata(catalog,Categoria):
     cargardatoscat(Categoria)
     cargardatosvideoslarge(catalog)
-<<<<<<< HEAD
-#>>>>>>> a274cb03e4207f7fac9278f3dea2d4485080d42c
-=======
->>>>>>> 6e8489619b613946ac345315ce5e1673631754f7
 
 
 def cargardatos(catalog):
