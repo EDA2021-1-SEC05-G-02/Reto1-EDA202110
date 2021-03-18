@@ -156,7 +156,7 @@ def requerimiento3(catalog, Categoria,categoria):
     indice_mayor=duracion.index(maximo)
     return (videos_1[indice_mayor], maximo,valor)
 
-    def requerimiento4(catalog,tag,country):
+def requerimiento4(catalog,tag,country):
     if country=="todos":
         tags=[]
         for i in catalog["videos"]["elements"]:

@@ -73,7 +73,7 @@ while True:
         print("Dias: "+str(controller.requerimiento3(catalog,Categoria,categoria)[1])+" Category_id: ",
         str(controller.requerimiento3(catalog,Categoria,categoria)[2]))
     
-       elif int(inputs[0]) == 5:
+    elif int(inputs[0]) == 5:
         print("Se ejecuto requerimiento 4 ")
         country=input("Escoja un país o si desea ver el ranking global digite 'todos': ")
         tag=input("Digite un tag: ")
@@ -90,6 +90,6 @@ while True:
             print("Tags: ",o[contador][1][2])
             contador+=1
    
-       else:
+    else:
         sys.exit(0)
 sys.exit(0)

@@ -47,3 +47,6 @@ def requerimiento2(catalog,country):
 
 def requerimiento3(catalog,Categoria,categoria):
     return model.requerimiento3(catalog,Categoria,categoria)
+
+def requerimiento4(catalog,tag,country):
+    return model.requerimiento4(catalog,tag,country)
